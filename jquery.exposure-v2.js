@@ -128,7 +128,7 @@
 
             if (_exp.hasOwnProperty('$elements')) {
                 _exp.$elements.each(function() {
-                    $(this).css(
+                    $(this).css({
                         width: '',
                         height : ''
                     });
