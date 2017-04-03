@@ -122,6 +122,29 @@
 
     $.fn.exposure = function(o) {
 
+        if (o === 'destroy') {
+
+            var _exp = $(this).data('exposure');
+
+            if (_exp.hasOwnProperty('$elements')) {
+                _exp.$elements.each(function() {
+                    $(this).css(
+                        width: '',
+                        height : ''
+                    });
+                });
+            }
+
+            $(window).off('resize.exposure' + _exp.uid );
+            $(this).data('exposure', false);
+
+            return;
+        }
+
+        if ($(this).data('exposure')) {
+            return $(this).data('exposure');
+        }
+
         // extend default options with user-defined overrides
         var _exp = new Exposure( $(this), o );
 
