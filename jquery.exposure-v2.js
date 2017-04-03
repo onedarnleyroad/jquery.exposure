@@ -122,6 +122,13 @@
 
     $.fn.exposure = function(o) {
 
+        // @TODO - the destory method
+        // doesn't really work if other
+        // parts of the app are calling Exposure.layout()
+        // which might be okay, but in other words
+        // the app is responsible for killing events
+        // as well as destorying things
+
         if (o === 'destroy') {
 
             var _exp = $(this).data('exposure');
